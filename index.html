@@ -320,7 +320,7 @@ fetch("https://raw.githubusercontent.com/cbs-news-data/air-quality_maplibre/refs
       const finalFormattedDate = `${dateParts[1].trim()} at ${dateParts[2]} PST`;
 
       // Update the note with the formatted timestamp
-      document.querySelector('.note').innerHTML = `Note: Data as of ${finalFormattedDate}`;
+      document.querySelector('.note').innerHTML = `Note: Data as of ${finalFormattedDate}.`;
     } else {
       document.querySelector('.note').innerHTML = 'Timestamp data not available.';
     }
