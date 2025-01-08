@@ -214,7 +214,7 @@
     style:
       "https://raw.githubusercontent.com/go2garret/maps/main/src/assets/json/openStreetMap.json", // Replace with your MapTiler style URL
     center: [-118.54952, 34.05664], // Centered on the Palisades fire
-    zoom: 5, // Dynamically set initial zoom
+    zoom: 7, // Dynamically set initial zoom
     maxZoom: 10,
     minZoom: 3,
   });
@@ -281,7 +281,7 @@
             "#876035",
             "#cccccc",
           ],
-          "fill-opacity": 0.3,
+          "fill-opacity": 0.4,
         },
       },
       firstSymbolId
@@ -315,8 +315,12 @@ fetch("https://raw.githubusercontent.com/cbs-news-data/air-quality_maplibre/refs
       // Replace "AM" and "PM" with "a.m." and "p.m."
       formattedDate = formattedDate.replace("AM", "a.m.").replace("PM", "p.m.");
 
+      // Format as "Jan 8 at 10:00 a.m. PST"
+      const dateParts = formattedDate.split(',');  // Split to separate date and time
+      const finalFormattedDate = `${dateParts[1].trim()} at ${dateParts[2]} PST`;
+
       // Update the note with the formatted timestamp
-      document.querySelector('.note').innerHTML = `Note: Data as of ${formattedDate} PST`;
+      document.querySelector('.note').innerHTML = `Note: Data as of ${finalFormattedDate}`;
     } else {
       document.querySelector('.note').innerHTML = 'Timestamp data not available.';
     }
